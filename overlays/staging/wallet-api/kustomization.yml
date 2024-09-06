@@ -1,0 +1,16 @@
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+resources:
+- ../../../base/wallet-api
+namespace: staging
+images:
+- name: 314146307135.dkr.ecr.eu-west-1.amazonaws.com/wallet-api
+  newTag: latest
+patches:
+- target:
+    kind: Ingress
+    name: wallet-api-ingress
+  patch: |-
+    - op: replace
+      path: /spec/rules/0/host
+      value: wallet-api-staging.vpd.life
