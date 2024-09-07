@@ -1,21 +1,16 @@
 apiVersion: kustomize.config.k8s.io/v1beta1
 kind: Kustomization
-
 resources:
-  - ../../../base/wallet-api
-
+- ../../../base/wallet-api
 namespace: dev
-
 images:
-  - name: 314146307135.dkr.ecr.eu-west-1.amazonaws.com/wallet-api
-    newTag: e72b88d8fba29106c94b8238e38768d93e2c384d
-
-
+- name: 314146307135.dkr.ecr.eu-west-1.amazonaws.com/wallet-api
+  newTag: 7dd2faf350066bdd4dcee344745bcc9cd44ff1a8
 patches:
-  - target:
-      kind: Ingress
-      name: wallet-api-ingress
-    patch: |-
-      - op: replace
-        path: /spec/rules/0/host
-        value: wallet-api-dev.vpd.life
+- target:
+    kind: Ingress
+    name: wallet-api-ingress
+  patch: |-
+    - op: replace
+      path: /spec/rules/0/host
+      value: wallet-api-dev.vpd.life
