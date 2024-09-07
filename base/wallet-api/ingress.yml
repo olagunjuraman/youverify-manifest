@@ -5,6 +5,10 @@ metadata:
   annotations:
     nginx.ingress.kubernetes.io/rewrite-target: /
 spec:
+  tls:
+  - hosts:
+    - wallet-api-dev.vpd.life
+    secretName: wallet-tls-secret
   ingressClassName: nginx
   rules:
     - http:
