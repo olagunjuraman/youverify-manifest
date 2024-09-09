@@ -8,7 +8,7 @@ spec:
   tls:
   - hosts:
     - wallet-api-dev.vpd.life
-    secretName: wallet-tls-secret
+    secretName: vpd-life-wildcard-tls
   ingressClassName: nginx
   rules:
     - http:
